@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Personal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/page-logo.png" type="image/x-icon">
+</head>
+<body>
+    <aside class="ctn-people-form" id="windowAddPeople">
+        <div class="ctn-formulario">
+            <form action="" id="formAddPeople" class="form-register-people">
+                <div class="title-form">
+                    <p>Agrega una Nueva Persona</p>
+                </div>
+                <div class="ctn-inputs">
+                    <div class="ctn input-name">
+                        <p>Nombre</p>
+                        <input type="text" name="namePeople" id="namePeople" placeholder="Nombre">
+                    </div>
+                    <div class="ctn input-yearsOld">
+                        <p>Fecha de Nacimiento</p>
+                        <div class="select-day-birth">
+                            <div class="item">
+                                <label for="dayOldPeople">Dia</label>
+                                <select name="edadDay" id="dayOldPeople">
+                                    <option value="">Seleccionar</option>
+                                </select>
+                            </div>
+                            <div class="item">
+                                <label for="monthOldPeople">Mes</label>
+                                <select name="edadMonth" id="monthOldPeople">
+                                    <option value="">Seleccionar</option>
+                                </select>
+                            </div>
+                            <div class="item">
+                                <label for="yearOldPeople">Año</label>
+                                <select name="edadYear" id="yearOldPeople">
+                                    <option value="">Seleccionar</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ctn input-id">
+                        <p>Numero de Identificación</p>
+                        <input type="number" name="IdPeople" id="idPeople" placeholder="Numero De Identificación">
+                    </div>
+                    <div class="ctn input-email">
+                        <p>Correo Electronico / Email</p>
+                        <input type="email" name="emailPeople" id="emailPeople" placeholder="Correo Electrónico">
+                    </div>
+                    <div class="ctn select-type">
+                        <label for="typePeople">Tipo de Persona</label>
+                        <select name="edadDay" id="typePeople">
+                            <option value="">Seleccionar</option>
+                            <option value="empleado">Empleado</option>
+                            <option value="contrato">Contrato</option>
+                            <option value="cliente">Cliente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ctn-submit">
+                    <button type="submit" class="btn btn-submit">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </aside>
+    <div class="container">
+        <header>
+            <div class="ctn-menu">
+                <img src="img/LogoIcon.svg" alt="logo People Manager">
+            </div>
+            <div class="buttons">
+                <button class="btn btnAdd" id="btnAddPeople">Agregar Persona</button>
+            </div>
+        </header>
+        <main>
+            <div class="ctn-estadisticas">
+                <div class="item-estadisticas">
+                    <p >Personas</p>
+                    <span class="n" id="statisticsPeoples">0</span>
+                </div>
+                <div class="item-estadisticas">
+                    <p>Otros Datos</p>
+                    <div class="t">
+                        <p id="cStatistics"><span>Clientes: </span>0</p>
+                        <p id="eStatistics"><span>Empleados: </span>0</p>
+                        <p id="ccStatistics"><span>Contratados: </span>0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ctn-peoples" id="boxPeoples"></div>
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/locale/es"></script>
+    <script>dayjs.locale('es')</script>
+    <script src="main/controlUI.js"></script>
+    <script src="main/app.js"></script>
+</body>
+</html>
