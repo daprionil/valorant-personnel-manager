@@ -161,8 +161,6 @@ function agregarPersona(e){
         data.fecha = fecha;
         data.date = dayjs(new Date()).format('MMMM D YYYY - h : mm a');
 
-        console.log(data);
-
         p.editarPeople({...data});
         setStoragePeople(p.peoples);
         ui.viewResults(p.peoples);
