@@ -61,20 +61,30 @@ class UI {
         };
     };
     viewResults(arr){
-        const boxTotal = document.querySelector('#statisticsPeoples');
-        boxTotal.textContent = `${arr.length}`;
+        let clientes = [];
+        let empleados = [];
+        let contratos = [];
 
-        const clientesLength = arr.filter( pe => pe.typePeople === 'cliente' ).length;
-        const clientesBox  = document.querySelector('#cStatistics');
-        clientesBox.innerHTML = `<span>Clientes: </span>${clientesLength}`;
+        arr.forEach( pe => {
+            switch(pe.typePeople){
+                case "cliente":
+                    clientes = [...clientes,pe];
+                    break;
+                case "empleado":
+                    empleados = [...empleados,pe];
+                    break;
+                case "contrato":
+                    contratos = [...contratos,pe];
+                    break;
+                default:
+                    break;
+            };
+        });
 
-        const empleadoLength = arr.filter( pe => pe.typePeople === 'empleado' ).length;
-        const empleadoBox  = document.querySelector('#eStatistics');
-        empleadoBox.innerHTML = `<span>Empleados: </span>${empleadoLength}`;
-
-        const contratosLength = arr.filter( pe => pe.typePeople === 'contrato' ).length;
-        const contratosBox  = document.querySelector('#ccStatistics');
-        contratosBox.innerHTML = `<span>Contratos: </span>${contratosLength}`;
+        document.querySelector('#statisticsPeoples').innerHTML = `<span>${arr.length}</span>`;
+        document.querySelector('#cStatistics').innerHTML = `<span>Clientes: </span>${clientes.length}`;
+        document.querySelector('#eStatistics').innerHTML = `<span>Empleados: </span>${empleados.length}`;
+        document.querySelector('#ccStatistics').innerHTML = `<span>Contratados: </span>${contratos.length}`;
     };
     peoplesHtml(obj){
         this.deleteHtmlPeoples();
@@ -163,13 +173,19 @@ function agregarPersona(e){
 
         p.editarPeople({...data});
         setStoragePeople(p.peoples);
+
         ui.viewResults(p.peoples);
         ui.peoplesHtml(p.peoples);
         ui.message('Editado Correctamente','correcto');
-        formularioAddPeople.reset();
-        resetObj();
 
         formularioAddPeople.querySelector('button[type="submit"]').textContent = 'Confirmar';
+        formularioAddPeople.reset();
+
+        resetObj();
+        
+        if(ventanaAddPeople.classList.contains('active')){
+            ventanaAddPeople.classList.remove('active');
+        };
         p.mode = false;
     };
 };
