@@ -153,12 +153,7 @@ function agregarPersona(e){
         };
 
         p.agregarPeople({...data});
-        setStoragePeople(p.peoples);
-        ui.viewResults(p.peoples);
-        ui.peoplesHtml(p.peoples);
         ui.message('Persona Agregada Correctamente','correcto');
-        formularioAddPeople.reset();
-        resetObj();
         if(ventanaAddPeople.classList.contains('active')){
             ventanaAddPeople.classList.remove('active');
         };
@@ -172,22 +167,22 @@ function agregarPersona(e){
         data.date = dayjs(new Date()).format('MMMM D YYYY - h : mm a');
 
         p.editarPeople({...data});
-        setStoragePeople(p.peoples);
-
-        ui.viewResults(p.peoples);
-        ui.peoplesHtml(p.peoples);
         ui.message('Editado Correctamente','correcto');
 
         formularioAddPeople.querySelector('button[type="submit"]').textContent = 'Confirmar';
-        formularioAddPeople.reset();
 
-        resetObj();
         
         if(ventanaAddPeople.classList.contains('active')){
             ventanaAddPeople.classList.remove('active');
         };
         p.mode = false;
     };
+    
+    setStoragePeople(p.peoples);
+    ui.viewResults(p.peoples);
+    ui.peoplesHtml(p.peoples);
+    formularioAddPeople.reset();
+    resetObj();
 };
 function resetObj(){
     data = {
