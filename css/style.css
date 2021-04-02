@@ -217,7 +217,6 @@ body .container main .ctn-peoples {
   -ms-grid-columns: 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 0 15px;
-  justify-items: center;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
