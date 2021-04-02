@@ -272,11 +272,18 @@ function editarPeople(obj){
     };
 };
 function eliminarPersona(obj){
-    p.deletePeople(obj);
-    setStoragePeople(p.peoples);
-    ui.peoplesHtml(p.peoples);
-    ui.message('Eliminado Correctamente','correcto');
-    ui.viewResults(p.peoples);
+    const validate = confirm("¿ Estás seguro de Eliminarlo ?");
+
+    if(validate){
+        p.deletePeople(obj);
+        setStoragePeople(p.peoples);
+        ui.peoplesHtml(p.peoples);
+        ui.message('Eliminado Correctamente','correcto');
+        ui.viewResults(p.peoples);
+        return;
+    };
+
+    ui.message('Se ha Cancelado la Acción: Eliminar','incorrecto');
 };
 function setStoragePeople(arr){
     localStorage.setItem('peoples',JSON.stringify(arr));
